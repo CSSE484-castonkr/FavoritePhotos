@@ -52,7 +52,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-KZ-RCu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-KZ-RCu">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHY-6Q-VeT">
@@ -67,7 +67,7 @@
                                     <action selector="takePhoto:" destination="11a-zI-s7a" eventType="touchUpInside" id="fBg-2H-sWd"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-8N-rmp">
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-8N-rmp">
                                 <rect key="frame" x="36" y="40" width="303" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="TSm-Ca-f07"/>
