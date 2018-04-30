@@ -1,24 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5lZ-bu-8oh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--List-->
+        <scene sceneID="aU4-jj-B5a">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="XN5-8k-vhI" customClass="PhotoListViewController" customModule="FavoritePhotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dU2-5j-p8e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-54-igH">
+                                <rect key="frame" x="275" y="527" width="100" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Bok-iq-oa9"/>
+                                    <constraint firstAttribute="width" secondItem="kbL-54-igH" secondAttribute="height" multiplier="100:91" id="KI9-hF-mTg"/>
+                                    <constraint firstAttribute="width" constant="100" id="xIQ-02-u6V"/>
+                                </constraints>
+                                <state key="normal" image="fab"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OwB-98-rra" firstAttribute="trailing" secondItem="kbL-54-igH" secondAttribute="trailing" id="QyA-QO-C37"/>
+                            <constraint firstItem="kbL-54-igH" firstAttribute="width" secondItem="kbL-54-igH" secondAttribute="height" multiplier="100:91" id="Xou-6Y-OCg"/>
+                            <constraint firstItem="OwB-98-rra" firstAttribute="bottom" secondItem="kbL-54-igH" secondAttribute="bottom" id="cyI-BA-qnI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OwB-98-rra"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="List" image="list" landscapeImage="list" id="hdY-6b-bfy"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BSr-ga-MIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-502" y="347"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="yWH-za-Ciu">
+            <objects>
+                <viewController id="11a-zI-s7a" customClass="FavoritePhotoViewController" customModule="FavoritePhotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kor-L5-eqh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-KZ-RCu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHY-6Q-VeT">
+                                <rect key="frame" x="275" y="527" width="100" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JHY-6Q-VeT" secondAttribute="height" multiplier="100:91" id="QaC-xd-dNd"/>
+                                    <constraint firstAttribute="width" constant="100" id="VyY-we-oGy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="wGx-zU-fZY"/>
+                                </constraints>
+                                <state key="normal" image="fab"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="11a-zI-s7a" eventType="touchUpInside" id="fBg-2H-sWd"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yVs-8N-rmp">
+                                <rect key="frame" x="36" y="40" width="303" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="TSm-Ca-f07"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ni0-wp-qxn" firstAttribute="bottom" secondItem="JHY-6Q-VeT" secondAttribute="bottom" id="1aa-GC-lKa"/>
+                            <constraint firstItem="JHY-6Q-VeT" firstAttribute="trailing" secondItem="Ni0-wp-qxn" secondAttribute="trailing" id="IIP-LE-TwR"/>
+                            <constraint firstItem="zxb-KZ-RCu" firstAttribute="top" secondItem="Ni0-wp-qxn" secondAttribute="top" id="In9-VM-fyU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVs-8N-rmp" secondAttribute="trailing" constant="20" id="PdP-Vg-rns"/>
+                            <constraint firstItem="yVs-8N-rmp" firstAttribute="leading" secondItem="kor-L5-eqh" secondAttribute="leadingMargin" constant="20" id="PqA-QG-eB2"/>
+                            <constraint firstItem="zxb-KZ-RCu" firstAttribute="bottom" secondItem="Ni0-wp-qxn" secondAttribute="bottom" id="Tbl-CX-qBI"/>
+                            <constraint firstItem="yVs-8N-rmp" firstAttribute="top" secondItem="Ni0-wp-qxn" secondAttribute="top" constant="20" id="V6a-GX-nIq"/>
+                            <constraint firstItem="Ni0-wp-qxn" firstAttribute="bottom" secondItem="JHY-6Q-VeT" secondAttribute="bottom" id="Xck-t8-ijm"/>
+                            <constraint firstItem="JHY-6Q-VeT" firstAttribute="trailing" secondItem="Ni0-wp-qxn" secondAttribute="trailing" id="fc0-yj-uPJ"/>
+                            <constraint firstItem="zxb-KZ-RCu" firstAttribute="leading" secondItem="Ni0-wp-qxn" secondAttribute="leading" id="jjq-8z-ukF"/>
+                            <constraint firstItem="zxb-KZ-RCu" firstAttribute="trailing" secondItem="Ni0-wp-qxn" secondAttribute="trailing" id="lFH-GD-FNO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ni0-wp-qxn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="camera" landscapeImage="camera" id="mRY-ZZ-MkY"/>
+                    <connections>
+                        <outlet property="imageView" destination="zxb-KZ-RCu" id="GMo-bT-gZU"/>
+                        <outlet property="progressView" destination="yVs-8N-rmp" id="cBz-cH-IUs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cMR-Ej-gax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503.19999999999999" y="-318.89055472263868"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="V0O-JI-Bba">
+            <objects>
+                <tabBarController id="5lZ-bu-8oh" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qBx-HY-d3E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="11a-zI-s7a" kind="relationship" relationship="viewControllers" id="ePl-It-kf6"/>
+                        <segue destination="XN5-8k-vhI" kind="relationship" relationship="viewControllers" id="zuH-c2-5Uh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R7u-P4-rSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1453" y="15"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="30" height="30"/>
+        <image name="fab" width="300" height="273"/>
+        <image name="list" width="30" height="30"/>
+    </resources>
 </document>
