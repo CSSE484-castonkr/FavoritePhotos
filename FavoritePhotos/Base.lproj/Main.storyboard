@@ -20,6 +20,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qnK-eg-4ba">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mGs-xm-KUI">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="71M-7n-gKH">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-54-igH">
                                 <rect key="frame" x="275" y="527" width="100" height="91"/>
                                 <constraints>
@@ -32,9 +52,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="qnK-eg-4ba" firstAttribute="bottom" secondItem="OwB-98-rra" secondAttribute="bottom" id="Gwo-Tp-HO1"/>
                             <constraint firstItem="OwB-98-rra" firstAttribute="trailing" secondItem="kbL-54-igH" secondAttribute="trailing" id="QyA-QO-C37"/>
+                            <constraint firstItem="qnK-eg-4ba" firstAttribute="leading" secondItem="OwB-98-rra" secondAttribute="leading" id="SBN-vp-cCm"/>
                             <constraint firstItem="kbL-54-igH" firstAttribute="width" secondItem="kbL-54-igH" secondAttribute="height" multiplier="100:91" id="Xou-6Y-OCg"/>
+                            <constraint firstItem="qnK-eg-4ba" firstAttribute="top" secondItem="OwB-98-rra" secondAttribute="top" id="bqD-CM-bTH"/>
                             <constraint firstItem="OwB-98-rra" firstAttribute="bottom" secondItem="kbL-54-igH" secondAttribute="bottom" id="cyI-BA-qnI"/>
+                            <constraint firstItem="qnK-eg-4ba" firstAttribute="trailing" secondItem="OwB-98-rra" secondAttribute="trailing" id="nzb-Xz-W4K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OwB-98-rra"/>
                     </view>
@@ -42,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSr-ga-MIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-502" y="347"/>
+            <point key="canvasLocation" x="-503.19999999999999" y="346.77661169415296"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="yWH-za-Ciu">
