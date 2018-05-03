@@ -57,8 +57,8 @@ class FavoritePhotoViewController: UIViewController {
         present(imagePicker, animated: true)
     }
     
-    func uploadImage(_ data: Data?) {
-        guard let data = data else { return }
+    func uploadImage(_ image: UIImage) {
+        guard let data = UIImageJPEGRepresentation(image, 0.5) else { return }
         let uploadMetadata = StorageMetadata()
         uploadMetadata.contentType = "image/jpeg"
         
@@ -106,7 +106,7 @@ extension FavoritePhotoViewController: UINavigationControllerDelegate, UIImagePi
             // In production, might DO this AND upload. For demo, JUST upload
             //            self.imageView.image = image
             
-            uploadImage(UIImageJPEGRepresentation(image, 0.5))
+            uploadImage(image)
         }
         picker.dismiss(animated: true)
     }
