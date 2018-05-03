@@ -96,7 +96,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="list" landscapeImage="list" id="hdY-6b-bfy"/>
                     <connections>
-                        <outletCollection property="collectionView" destination="qnK-eg-4ba" collectionClass="NSMutableArray" id="fxv-ew-mjD"/>
+                        <outlet property="collectionView" destination="qnK-eg-4ba" id="y7p-DW-cA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSr-ga-MIV" userLabel="First Responder" sceneMemberID="firstResponder"/>

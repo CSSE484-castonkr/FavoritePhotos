@@ -12,7 +12,11 @@ import Firebase
 class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let photoCellIdentifier = "PhotoCell"
-    @IBOutlet var collectionView: [UICollectionView]!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let itemsPerRow = 2
+    let sectionInsets = UIEdgeInsetsMake(30.0, 10.0, 30.0, 10.0)
+    
     
     var photosStorageRef: StorageReference!
     var photosCollectionRef: CollectionReference!
@@ -25,8 +29,24 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSo
         photosStorageRef = Storage.storage().reference(withPath: "photos")
         photosCollectionRef = Firestore.firestore().collection("photos")
     }
-    
-    // TODO: add and remove a firestore listener
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photosListener = photosCollectionRef
+            .order(by: "created",descending: true)
+            .limit(to: 12)
+            .addSnapshotListener({ (querySnapshot, error) in
+            if let error = error {
+                print("Error getting Firestore photos \(error.localizedDescription)")
+            }
+            if let snapshot = querySnapshot {
+                print("Got some photos. Reload the data!")
+                
+                self.dataSnapshots = snapshot.documents
+                self.collectionView.reloadData()
+            }
+        })
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSnapshots.count
@@ -76,3 +96,22 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSo
         }
     }
 }
+
+extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / CGFloat(itemsPerRow)
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+}
+
+
