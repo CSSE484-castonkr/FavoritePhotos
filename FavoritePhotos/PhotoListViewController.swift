@@ -29,24 +29,51 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSo
         photosStorageRef = Storage.storage().reference(withPath: "photos")
         photosCollectionRef = Firestore.firestore().collection("photos")
     }
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         photosListener = photosCollectionRef
             .order(by: "created",descending: true)
             .limit(to: 12)
             .addSnapshotListener({ (querySnapshot, error) in
-            if let error = error {
-                print("Error getting Firestore photos \(error.localizedDescription)")
-            }
-            if let snapshot = querySnapshot {
-                print("Got some photos. Reload the data!")
+                if let error = error {
+                    print("Error getting Firestore photos \(error.localizedDescription)")
+                }
                 
-                self.dataSnapshots = snapshot.documents
-                self.collectionView.reloadData()
-            }
-        })
+                
+                if let snapshot = querySnapshot {
+                    // Print if this call is from the server or local
+                    let source = snapshot.metadata.hasPendingWrites ? "Local" : "Server"
+                    let fromCache = snapshot.metadata.isFromCache ? " from cache" : " not using cache"
+                    print(source + fromCache)
+                    
+                    
+                    print("Got some photos. Reload the data!")
+                    
+                    self.dataSnapshots = snapshot.documents
+                    self.collectionView.reloadData()
+                }
+            })
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        photosListener.remove()
+    }
+    
+    func getCaption(_ documentRef: DocumentReference) {
+        let ac = UIAlertController(title: "Set image caption", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        ac.addTextField { (textField) in
+            textField.placeholder = "Image caption"
+        }
+        let okAction = UIAlertAction(title: "OK", style: .default) { (alert) in
+            let captionTextField = ac.textFields![0]
+            documentRef.updateData(["caption" : captionTextField.text!])
+        }
+        ac.addAction(okAction)
+        present(ac, animated: true)
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSnapshots.count
@@ -75,6 +102,10 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSo
         
         let photoDocumentRef = photosCollectionRef.document()
         let photoStorageRef = photosStorageRef.child(photoDocumentRef.documentID)
+        
+        DispatchQueue.main.async {
+            self.getCaption(photoDocumentRef)
+        }
         
         photoStorageRef.putData(data, metadata: uploadMetadata) { (metadata, error) in
             if let error = error {
