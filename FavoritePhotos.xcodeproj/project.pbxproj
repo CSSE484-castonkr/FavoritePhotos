@@ -16,6 +16,7 @@
 		8DA689072097719600D9F193 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA689062097719600D9F193 /* PhotoListViewController.swift */; };
 		8DA689092098BBF500D9F193 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA689082098BBF500D9F193 /* ImageUtils.swift */; };
 		8DB3D1BD2098C2DB0047097F /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1BC2098C2DB0047097F /* PhotoViewCell.swift */; };
+		8DB3D1C5209B61740047097F /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1C4209B61740047097F /* ImagePickerViewController.swift */; };
 		D8776CD4F9D804AC470E5820 /* Pods_FavoritePhotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC29EBA18474051865279B93 /* Pods_FavoritePhotos.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		8DA689062097719600D9F193 /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
 		8DA689082098BBF500D9F193 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		8DB3D1BC2098C2DB0047097F /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		8DB3D1C4209B61740047097F /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		C09A61AD8235A16D68BD1B34 /* Pods-FavoritePhotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoritePhotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoritePhotos/Pods-FavoritePhotos.debug.xcconfig"; sourceTree = "<group>"; };
 		DC29EBA18474051865279B93 /* Pods_FavoritePhotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoritePhotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				8DA689062097719600D9F193 /* PhotoListViewController.swift */,
 				8DA689082098BBF500D9F193 /* ImageUtils.swift */,
 				8DB3D1BC2098C2DB0047097F /* PhotoViewCell.swift */,
+				8DB3D1C4209B61740047097F /* ImagePickerViewController.swift */,
 			);
 			path = FavoritePhotos;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB3D1C5209B61740047097F /* ImagePickerViewController.swift in Sources */,
 				8DA689072097719600D9F193 /* PhotoListViewController.swift in Sources */,
 				8DA689052097718100D9F193 /* FavoritePhotoViewController.swift in Sources */,
 				8DA688EE20976D1100D9F193 /* AppDelegate.swift in Sources */,
